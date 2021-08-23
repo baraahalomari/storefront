@@ -5,17 +5,21 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Button from '@material-ui/core/Button';
+import {connect} from 'react-redux';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    backgroundColor: theme.palette.secondary.main
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
 }));
 
-export default function DenseAppBar() {
+function DenseAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -26,11 +30,18 @@ export default function DenseAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit">
-            Photos
+            storefront
           </Typography>
+          <Button  color="inherit" onClick={()=>{props.show()}} style={{marginLeft:"900px"}} >CART({props.cart.length})</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
+
+function mapStateToProps(state){
+  return {cart:state.cart};
+}
+export default connect(mapStateToProps)(DenseAppBar);
 

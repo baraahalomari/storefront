@@ -1,9 +1,7 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import { connect } from 'react-redux';
 import { changeActive } from '../store/categories';
 import { getCategoryItems } from '../store/products';
-
-
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -16,6 +14,7 @@ const useStyles = makeStyles({
 });
 
 
+
 function Categories(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -23,6 +22,10 @@ function Categories(props) {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    useEffect(()=>{
+        props.changeActive("electronics");
+    },[])
 
     return (
         <Paper className={classes.root}>
@@ -37,8 +40,8 @@ function Categories(props) {
                 return <Tab key={element.name} label={element.name} onClick={() => { props.changeActive(element.name) }} />
             })}
             </Tabs>
-            <div>{props.activeCategory.name}</div>
-            <div>{props.activeCategory.description}</div>
+            <h2>{props.activeCategory.name}</h2>
+            <p>{props.activeCategory.description}</p>
         </Paper>
     );
 }

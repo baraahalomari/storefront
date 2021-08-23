@@ -24,7 +24,7 @@ function Products(props) {
     return (
         <div>
             {props.activeProducts.map(element=>{
-            return <Card className={classes.root} style={{ margin:"auto" , width:"35%", marginTop:"0px"}}>
+            return <Card className={classes.root} style={{ margin:"auto" , width:"60%", marginLeft:"20px",position:"absolute"}}>
                   <CardMedia
                     className={classes.media}
                     image={element.image}

@@ -14,13 +14,13 @@
 - choose a category and see a list of all available products matching that category
 - easy to use user interface so that I can shop the online store with confidence
 
-## sandbox Links
+## Deploy Link
 
-https://codesandbox.io/s/dreamy-faraday-c7scl
+https://sharp-murdock-20fba9.netlify.app/
 
 ## Pull Request Links: 
 
-https://github.com/baraahalomari/storefront/pull/2
+https://github.com/baraahalomari/storefront/pull/4
 
 
 ## UML

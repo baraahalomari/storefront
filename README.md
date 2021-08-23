@@ -16,11 +16,11 @@
 
 ## sandbox Links
 
-https://codesandbox.io/s/blissful-shtern-xdylz
+https://codesandbox.io/s/dreamy-faraday-c7scl
 
 ## Pull Request Links: 
 
-https://github.com/baraahalomari/storefront/pull/1
+https://github.com/baraahalomari/storefront/pull/2
 
 
 ## UML

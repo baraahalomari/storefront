@@ -49,8 +49,6 @@ function Cart(props) {
         return list;
 
     }
-
-
     return (
         <div className={classes.root}>
             <List component="nav" aria-label="secondary mailbox folders">
@@ -58,7 +56,6 @@ function Cart(props) {
             </List>
         </div>
     )
-
 }
 
 function mapStateToProps(state) {

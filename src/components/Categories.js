@@ -1,11 +1,11 @@
 import React ,{useEffect} from 'react'
-import { connect } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { changeActive } from '../store/categories';
-import { getCategoryItems } from '../store/products';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { getRemoteData } from '../async-fun/thunk';
 
 const useStyles = makeStyles({
     root: {
@@ -16,6 +16,13 @@ const useStyles = makeStyles({
 
 
 function Categories(props) {
+
+    const dispatch = useDispatch();
+    const state = useSelector(state => state.categories);
+
+
+
+
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -24,7 +31,9 @@ function Categories(props) {
     };
 
     useEffect(()=>{
-        props.changeActive("electronics");
+        dispatch(getRemoteData()).then(()=>{
+            dispatch(changeActive("electronics"));
+        });
     },[])
 
     return (
@@ -36,27 +45,19 @@ function Categories(props) {
                 textColor="primary"
                 centered
             >
-                {props.categories.map((element)=>{
-                return <Tab key={element.name} label={element.name} onClick={() => { props.changeActive(element.name) }} />
+                 {state.categories.map((element)=>{
+                return <Tab key={element.name} label={element.name} onClick={() => {dispatch(changeActive(element.name)) }} />
             })}
             </Tabs>
-            <h2>{props.activeCategory.name}</h2>
-            <p>{props.activeCategory.description}</p>
+            <h2>{state.activeCategory.name}</h2>
+            <p>{state.activeCategory.description}</p>
         </Paper>
     );
 }
 
 
-const mapStateToProps = (state) => {
-    return state.categories;
-}
-const mapDispatchToProps = {
-    changeActive,
-    getCategoryItems
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default Categories; 
 
 
 

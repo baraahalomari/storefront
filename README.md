@@ -20,7 +20,7 @@ https://sharp-murdock-20fba9.netlify.app/
 
 ## Pull Request Links: 
 
-https://github.com/baraahalomari/storefront/pull/4
+https://github.com/baraahalomari/storefront/pull/6
 
 
 ## UML
